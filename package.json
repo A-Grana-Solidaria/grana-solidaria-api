@@ -1,0 +1,57 @@
+{
+  "name": "grana-solidaria-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node index.js",
+    "migrate": "node ./src/utils/schema up",
+    "migrate:drop": "node ./src/utils/schema drop"
+  },
+  "dependencies": {
+    "@brazilian-utils/brazilian-utils": "^1.0.0-rc.12",
+    "@google-cloud/storage": "^6.7.0",
+    "@koa/cors": "^3.1.0",
+    "@koa/multer": "^3.0.0",
+    "@koa/router": "^10.0.0",
+    "aws-sdk": "^2.856.0",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^8.2.0",
+    "json2csv": "^5.0.6",
+    "jsonwebtoken": "^8.5.1",
+    "koa": "^2.13.1",
+    "koa-body": "^4.2.0",
+    "koa-bodyparser": "^4.3.0",
+    "koa-json": "^2.0.2",
+    "koa-mount": "^4.0.0",
+    "koa-router": "^9.4.0",
+    "koa-static": "^5.0.0",
+    "moment": "^2.29.1",
+    "momentjs": "^2.0.0",
+    "multer": "^1.4.2",
+    "nodemailer": "^6.4.17",
+    "nodemon": "^2.0.7",
+    "path": "^0.12.7",
+    "pg": "^8.3.3"
+  },
+  "devDependencies": {
+    "@cubos/kube-templates": "^1.0.499772",
+    "eslint": "^7.9.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "prettier": "^2.1.2"
+  },
+  "engines": {
+    "node": "14.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.cubos.io:grana-solidaria/grana-solidaria-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
