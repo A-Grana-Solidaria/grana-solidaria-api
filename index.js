@@ -13,8 +13,7 @@ const PORT = process.env.PORT || 8081;
 
 server.use(
 	cors({
-		allowHeaders: '*',
-		'Access-Control-Allow-Origin': 'https://black-hill-083acf310.3.azurestaticapps.net'
+		allowHeaders: '*'
 	})
 );
 // server.use(bodyparser());
