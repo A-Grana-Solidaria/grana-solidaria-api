@@ -122,7 +122,6 @@ const schema = {
 const drop = async (tableName) => {
 	if (tableName) {
 		await database.query(`DROP TABLE ${tableName}`);
-		console.log('Tabela dropada!');
 	}
 };
 
@@ -139,9 +138,7 @@ const up = async (number = null) => {
 switch (process.argv[2]) {
 	case 'up':
 		up()
-			.then(() => console.log('Todas as migrations feitas!'))
 			.catch((error) => {
-				console.log(`Migration negada: ${error}`);
 			})
 			.finally(() => database.end());
 		break;
@@ -150,13 +147,11 @@ switch (process.argv[2]) {
 		if (!process.argv[3]) break;
 		drop(process.argv[3])
 			.catch((error) => {
-				console.log(`Erro ao remover tabela: ${error}`);
 			})
 			.finally(() => database.end());
 		break;
 
 	default:
-		console.log('argumento inválido');
 		database.end();
 		break;
 }

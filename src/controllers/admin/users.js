@@ -97,6 +97,7 @@ const getDream = async (ctx) => {
 	if (!dreamDB) {
 		return response(ctx, 400, { mensagem: 'Esse sonho não existe!' });
 	}
+
 	const supportersOnDream = await dreamTable.allSupportersOnDream(dreamDB.id);
 	let totalQuotas = 0;
 	const allSupporters = [];

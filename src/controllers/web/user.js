@@ -311,7 +311,6 @@ const resetPassword = async (ctx) => {
 			return response(ctx, 404, { mensagem: 'Pagina não encontrada' });
 		}
 	} catch (err) {
-		console.log(err);
 		return response(ctx, 403, { mensagem: 'Ação Proibida' });
 	}
 };

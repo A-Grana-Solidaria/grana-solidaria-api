@@ -8,6 +8,7 @@ const Auth = require('./controllers/web/auth');
 const AuthAdm = require('./controllers/admin/auth');
 const User = require('./controllers/web/user');
 const UserAdm = require('./controllers/admin/users');
+const CompanyAdm = require('./controllers/admin/company');
 const Dreams = require('./controllers/web/dreams');
 const Session = require('./middlewares/session');
 const { upload, uploadFile } = require('./utils/storage2');
@@ -43,19 +44,12 @@ router.post('/dreamer', async (ctx, next) => {
 	}
 });
 
-router.post('/entrepreneurCompany', async (ctx, next) => {
+router.post('/company', async (ctx, next) => {
 	try {
-		// const { picture } = ctx.request.files;
-		// if (picture) {
-		// 	const { url } = await uploadFile({
-		// 		fileName: picture.name,
-		// 		filePath: picture.path,
-		// 		fileType: picture.type,
-		// 	});
-		// 	ctx.request.body.picture = url;
-		// }
-
-		return User.registerEntrepreneurCompany(ctx);
+		console.log("chegou aqui");
+		console.log(ctx);
+		return true;
+		// return User.registerEntrepreneurCompany(ctx);
 	} catch (error) {
 		return response(ctx, 400, { mensagem: error.message });
 	}
@@ -94,7 +88,11 @@ router.post('/resetpassword/:token', User.resetPassword);
 // ROTAS DO ADM
 router.post('/login', AuthAdm.authenticationADM);
 router.get('/dreamers', Session.verify, UserAdm.listDreamers); // listar os sonhadores, usando a querystring '?offset='
+router.get('/companies', Session.verify, CompanyAdm.listCompanies);
+router.get('/associates/:id', Session.verify, CompanyAdm.listAssociatesByCompanyId);
 router.get('/dream/:id', Session.verify, UserAdm.getDream);
+router.get('/company/:id', Session.verify, CompanyAdm.getCompany);
+router.get('/associate/:id', Session.verify, CompanyAdm.getAssociate);
 
 router.put('/dream/:id', Session.verify, async (ctx, next) => {
 	try {
@@ -111,8 +109,15 @@ router.put('/dream/:id', Session.verify, async (ctx, next) => {
 
 		return UserAdm.updateDream(ctx);
 	} catch (error) {
-		console.log(error)
 		return response(ctx, 400, { mensagem: 'Arquivo não permitido!' });
+	}
+});
+
+router.put('/company/:id', Session.verify, async (ctx, next) => {
+	try {
+		return CompanyAdm.updateCompany(ctx);
+	} catch (error) {
+		return response(ctx, 400, { mensagem: 'Dados não permitidos!' });
 	}
 });
 
@@ -136,6 +141,7 @@ router.put('/supporter/:id', Session.verify, async (ctx, next) => {
 });
 router.get('/supporters', Session.verify, UserAdm.listSupporters); // listar os apoiadores, usando a querystring '?offset='
 router.delete('/user/:id', Session.verify, UserAdm.deleteProfile);
+router.delete('/company/:id', Session.verify, CompanyAdm.deleteCompany);
 
 router.get('/export', Session.verify, Export.exportTables);
 

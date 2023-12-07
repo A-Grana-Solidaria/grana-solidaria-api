@@ -17,7 +17,9 @@
     "@koa/multer": "^3.0.0",
     "@koa/router": "^10.0.0",
     "aws-sdk": "^2.856.0",
+    "axios": "^1.5.1",
     "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "json2csv": "^5.0.6",
     "jsonwebtoken": "^8.5.1",
@@ -50,7 +52,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@git.cubos.io:grana-solidaria/grana-solidaria-api.git"
+    "url": "https://github.com/A-Grana-Solidaria/grana-solidaria-api"
   },
   "keywords": [],
   "author": "",

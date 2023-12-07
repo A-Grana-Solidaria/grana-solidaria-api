@@ -16,7 +16,6 @@ const client = new Client({
 
 client
 	.connect()
-	.then(() => console.log('connected'))
 	.catch((err) => console.error('connection error', err.stack));
 
 module.exports = client;

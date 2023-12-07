@@ -18,7 +18,6 @@ const verify = async (ctx, next) => {
 		ctx.state.type = verification.type;
 		ctx.state.name = verification.name;
 	} catch (err) {
-		console.log(err);
 		return response(ctx, 403, { mensagem: 'Ação Proibida' });
 	}
 

@@ -74,7 +74,9 @@ const registerDream = async (ctx) => {
 		mensagem: 'Sonho cadastrado com sucesso!',
 	});
 };
-
+const getAssociateByID = async (ctx) => {
+	//ToDo devo usar esse metodo msm? ou juntar com o retorno da lista de "sonhadores?"
+}
 const getDreamById = async (ctx) => {
 	const { id = null } = ctx.params;
 
@@ -179,6 +181,8 @@ const getDreams = async (ctx) => {
 
 	return response(ctx, 200, { mensagem: 'Pedente' });
 };
+
+
 const supportDream = async (ctx) => {
 	const { totalQuotas = null } = ctx.request.body;
 	const supporterId = ctx.state.id;

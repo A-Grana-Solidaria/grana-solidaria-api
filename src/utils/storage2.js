@@ -13,7 +13,6 @@ const uploadFile = async ({
 	name = Date.now(),
 	contentDisposition = '',
 }) => {
-	console.log(fileName, filePath);
 	const storage = new Storage({
     keyFilename: process.env.GCS_KEYFILE,
     projectId: process.env.GCP_PROJECT_ID,

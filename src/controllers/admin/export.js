@@ -37,7 +37,6 @@ const exportTables = async (ctx) => {
 			{ encoding: 'utf16le' },
 			function (err) {
 				if (err) throw err;
-				console.log('dreamersSummary saved');
 			}
 		);
 
@@ -47,7 +46,6 @@ const exportTables = async (ctx) => {
 			{ encoding: 'utf16le' },
 			function (err) {
 				if (err) throw err;
-				console.log('supportersSummary saved');
 			}
 		);
 
@@ -57,7 +55,6 @@ const exportTables = async (ctx) => {
 			{ encoding: 'utf16le' },
 			function (err) {
 				if (err) throw err;
-				console.log('matchSummary saved');
 			}
 		);
 

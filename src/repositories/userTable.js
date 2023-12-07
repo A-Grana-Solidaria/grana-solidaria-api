@@ -20,6 +20,15 @@ const searchUserById = async (id) => {
 	return result.rows.shift();
 };
 
+const searchCompanyById = async (id) => {
+	const query = `SELECT * FROM cnpj_entrepreneur_register WHERE id = $1`;
+	const result = await database.query({
+		text:query,
+		values: [id],
+	});
+	return result.rows.shift();
+}
+
 const createUser = async (
 	name,
 	picture,
@@ -34,8 +43,6 @@ const createUser = async (
 	investingType,
 	investingBudget
 ) => {
-	console.log("create user inside");
-	console.log(birthdate);
 	if (
 		!name ||
 		!birthdate ||
@@ -48,7 +55,6 @@ const createUser = async (
 	) {
 		return null;
 	}
-	console.log("create user inside 2");
 	const query = `INSERT INTO users(
 			  name,
 		    birthdate,
@@ -61,8 +67,7 @@ const createUser = async (
         type,
         hasInvestingExperience,
         investingType,
-        investingBudget) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12) RETURNING *`;
-	console.log("create user inside 3");				
+        investingBudget) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12) RETURNING *`;		
 	const result = await database.query({
 		text: query,
 		values: [
@@ -80,7 +85,6 @@ const createUser = async (
 			investingBudget,
 		],
 	});
-	console.log("create user inside 4");	
 	return result.rows.shift();
 };
 const getUser = async (cpf) => {
@@ -228,6 +232,7 @@ const newPassword = async (password, email) => {
 module.exports = {
 	searchUser,
 	searchUserById,
+	searchCompanyById,
 	createUser,
 	getUser,
 	getUserConfirmed,
